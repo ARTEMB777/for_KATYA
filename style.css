@@ -1,0 +1,105 @@
+/* style.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f3e9e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Georgia', serif;
+  color: #5a4a54;
+  padding: 20px;
+}
+
+.poem-container {
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 30px;
+  border: 2px solid #e1c3b6;
+  border-radius: 15px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 3s ease-in-out;
+}
+
+.stanza {
+  margin-bottom: 30px;
+  padding: 15px;
+  border-left: 3px solid #d4a5a5;
+  position: relative;
+  opacity: 0;
+  animation: stanzaFadeIn 2s forwards;
+}
+
+.stanza:nth-child(1) {
+  animation-delay: 0s; /* Перша строфа з’являється відразу */
+}
+
+.stanza:nth-child(2) {
+  animation-delay: 5s; /* Друга строфа з’являється через 7 секунд */
+}
+
+.stanza:nth-child(3) {
+  animation-delay: 10s; /* Третя строфа з’являється через 14 секунд */
+}
+
+.stanza::before {
+  content: "❦";
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  font-size: 1.5em;
+  color: #d4a5a5;
+}
+
+.line {
+  font-size: 1.2em;
+  margin: 8px 0;
+  opacity: 0;
+  animation: lineFadeIn 1s ease forwards;
+}
+
+/* Анімація для рядків */
+.line:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.line:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.line:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.line:nth-child(4) {
+  animation-delay: 2s;
+}
+
+/* Анімації для загального fade-in строфи */
+@keyframes stanzaFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Анімації для появи кожного рядка */
+@keyframes lineFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
